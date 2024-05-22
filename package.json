@@ -1,0 +1,17 @@
+{
+  "name": "assessment",
+  "version": "1.0.0",
+  "description": "Automation Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Emre Dincsoy",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^13.10.0"
+  },
+  "dependencies": {
+    "npx": "^10.2.2"
+  }
+}
