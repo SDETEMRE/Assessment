@@ -40,3 +40,7 @@ If you want to run tests directly from the command line, run this instead:
 ```
 npx cypress run
 ```
+* You may use scripsts to run all the tests and get Mochawesome Report : They are all inside of the package.json file/scripts
+
+* Once you run that script you may find the report inside of the mochawesome-report folder (mochawesome.html)
+
