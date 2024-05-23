@@ -1,9 +1,9 @@
 # CypressAutoTest
 
-# Booking Example: Cypress in JavaScript
+# HomePage Example: Cypress in JavaScript
 
-This is the e2e test for booking an appointment.
-It shows how to make an e2e automating test with [Cypress](https://www.cypress.io/) in JavaScript.
+This is Automation Test Samples for HomePage of a Website.
+It shows how to make an automating test with [Cypress](https://www.cypress.io/) in JavaScript.
 
 It uses:
 
@@ -14,10 +14,9 @@ It uses:
 
 To run this example project, you'll need:
 
-1. An email address provider [MailSlurp](https://www.mailslurp.com/) to get verification code. 
-2. [Node.js](https://nodejs.org/en/download/) version 16 or higher
-3. A good JavaScript editor like [Visual Studio Code](https://code.visualstudio.com/docs/languages/javascript)
-4. Up-to-date versions of the following browsers:
+1. [Node.js](https://nodejs.org/en/download/) version 16 or higher
+2. A good JavaScript editor like [Visual Studio Code](https://code.visualstudio.com/docs/languages/javascript)
+3. Up-to-date versions of the following browsers:
    * [Google Chrome](https://www.google.com/chrome/)
    * [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
    * [Microsoft Edge](https://www.microsoft.com/en-us/edge)
