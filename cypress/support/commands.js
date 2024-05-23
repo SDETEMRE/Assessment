@@ -29,7 +29,6 @@ const homePage = new HomePage();
 
 Cypress.Commands.add("alertAlertBtn", (name) => {
   homePage.nameField.type(name);
-
   // Test scenario for alert button
   homePage.alertBtn.click();
   cy.on("window:alert", (alertText) => {
@@ -48,23 +47,27 @@ Cypress.Commands.add("alertConfirmBtn", (name) => {
     );
   });
 });
-  Cypress.Commands.add("hideTest", (name)=>{
-    homePage.showHideInputField.type(name);
-    homePage.hideBtn.click();
-  })
-  Cypress.Commands.add("showTest" ,()=>{
-    homePage.showBtn.click();
-  })
+Cypress.Commands.add("hideTest", (name) => {
+  homePage.showHideInputField.type(name);
+  homePage.hideBtn.click();
+});
+Cypress.Commands.add("showTest", () => {
+  homePage.showBtn.click();
+});
 
-  Cypress.Commands.add('getNewTabUrl', (openButtonSelector) => {
-    cy.window().then((win) => {
-      const open = win.open;
-      cy.stub(win, 'open').callsFake((url) => {
+Cypress.Commands.add("getNewTabUrl", (openButtonSelector) => {
+  cy.window().then((win) => {
+    const open = win.open;
+    cy.stub(win, "open")
+      .callsFake((url) => {
         win.location.href = url;
-      }).as('windowOpen');
-    });
-    openButtonSelector.click();
-    
+      })
+      .as("windowOpen");
   });
+  openButtonSelector.click();
+});
 
+Cypress.Commands.add('readAlertTextFromFile', () => {
+  return cy.task('readFile', 'alert-text.txt');
+});
 

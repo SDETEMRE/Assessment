@@ -38,7 +38,7 @@ class HomePage {
   get iframe(){
     return cy.get('#courses-iframe')
   }
-  get pricing(){
+  get pricingTab(){
     return cy.get('#menu-item-100599')
   }
   uploadFile(file) {

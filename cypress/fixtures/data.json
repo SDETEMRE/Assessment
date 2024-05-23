@@ -1,22 +1,20 @@
 {
   "dropDown": {
-    "Options": ["option1","option2","option3"]
+    "Options": ["option1", "option2", "option3"]
   },
   "uploadedImage": "cypress/fixtures/Test-Logo.png",
-  "openNewtab" : {
-    "newUrl" : "https://www.easygenerator.com/en/"
+  "openNewtab": "https://www.easygenerator.com/en/",
+  "name": "Emre",
+  "mouseHover": {
+    "hList": ["Top", "Reload"]
   },
-  "name" : "Emre",
-  "mouseHover" : {
-    "hList": ["Top","Reload"]
-},
-"iframe":{
-  "tabs": [
-    "Why Easygenerator",
-    "Solutions",
-    "Fetures",
-    "Pricing",
-    "Resources"
-  ]
-}
+  "iframe": {
+    "tabs": [
+      "Why Easygenerator",
+      "Solutions",
+      "Fetures",
+      "Pricing",
+      "Resources"
+    ]
+  }
 }
