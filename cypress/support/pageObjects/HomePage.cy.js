@@ -32,11 +32,24 @@ class HomePage {
   get mouseHoverBtn(){
     return cy.get('.hover-container > .btn');
   }
+  get listOfHoverEl(){
+    return cy.get('div.hover-content > a')
+  }
+  get iframe(){
+    return cy.get('#courses-iframe')
+  }
+  get pricing(){
+    return cy.get('#menu-item-100599')
+  }
   uploadFile(file) {
     this.chooseFileBtn.selectFile(file);
   }
   textYourName(name) {
     this.nameField.type(name);
+  }
+  hoverOver(){
+    this.mouseHoverBtn.trigger('mouseover')
+    return this.listOfHoverEl
   }
 }
 export default HomePage;

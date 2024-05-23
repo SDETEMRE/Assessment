@@ -56,4 +56,15 @@ Cypress.Commands.add("alertConfirmBtn", (name) => {
     homePage.showBtn.click();
   })
 
+  Cypress.Commands.add('getNewTabUrl', (openButtonSelector) => {
+    cy.window().then((win) => {
+      const open = win.open;
+      cy.stub(win, 'open').callsFake((url) => {
+        win.location.href = url;
+      }).as('windowOpen');
+    });
+    openButtonSelector.click();
+    
+  });
+
 

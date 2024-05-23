@@ -19,17 +19,15 @@ describe("Test Cases for Task Home Page", () => {
     homePage.dropDownBtn.find("option").should("have.length", 3);
   });
   it("Upload Image Test", () => {
-    const uploadedImage = data.uploadedImage;
+    const uploadedImage = this.data.uploadedImage;
     homePage.chooseFileBtn.should("be.enabled");
     homePage.uploadFile(uploadedImage);
     homePage.uploadedImage.should("have.attr", "src").and("include", "blob");
   });
   it("Open New Tab Test", () => {
-    cy.window().then((win) => {
-      cy.spy(win, "open").as("redirect");
-    });
-    homePage.openNewTabBtn.click();
-    cy.url("@redirect").should("include", "https://www.easygenerator.com/en/");
+    cy.getNewTabUrl(homePage.openNewTabBtn);
+    cy.get("@windowOpen").should("have.been.called");
+    cy.url().should("eq", "https://www.easygenerator.com/en/");
   });
   it("Alert Test", () => {
     const name = data.name;
@@ -40,20 +38,25 @@ describe("Test Cases for Task Home Page", () => {
   it("Hide and Show Button Test", () => {
     const name = data.name;
     cy.hideTest(name);
-    homePage.showHideInputField.should('not.visible')
+    homePage.showHideInputField.should("not.visible");
     homePage.showBtn.click();
-    homePage.showHideInputField.should('be.visible')
+    homePage.showHideInputField.should("be.visible");
   });
-  it.only("Hover Test", () => {
-   const {list} = data.mouseHoverList;
-    homePage.mouseHoverBtn.trigger('mouseover').each(($el,index,list)=>{
-        cy.wrap($el).invoke('text').should('eq',list[index])
-    })
+  it("Hover Test", () => {
+    const { hList } = data.mouseHover;
+    homePage.mouseHoverBtn.trigger("mouseover");
+    hList.forEach((option, index) => {
+      homePage.listOfHoverEl
+        .eq(index)
+        .should("be.visible")
+        .and("have.text", option);
+    });
   });
-  xit("iFrame Test", () => {
-    const name = data.name;
-    cy.alertAlertBtn(name);
-    cy.alertConfirmBtn(name);
+  it("iFrame Test", () => {
+    homePage.iframe.then(($iframe) => {
+      const body = $iframe.contents().find("body");
+      cy.wrap(body).as("iframe");
+    });
+    cy.get("@iframe").find("#menu-item-100599").should("be.visible");
   });
-
 });
