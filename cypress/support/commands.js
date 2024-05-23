@@ -23,3 +23,37 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import HomePage from "./pageObjects/Homepage.cy";
+const homePage = new HomePage();
+
+Cypress.Commands.add("alertAlertBtn", (name) => {
+  homePage.nameField.type(name);
+
+  // Test scenario for alert button
+  homePage.alertBtn.click();
+  cy.on("window:alert", (alertText) => {
+    expect(alertText).to.contain(
+      `Hello ${name}, share this practice page and share your knowledge`
+    );
+  });
+});
+Cypress.Commands.add("alertConfirmBtn", (name) => {
+  // Test scenario for confirm button
+  homePage.nameField.type(name);
+  homePage.confirmBtn.click();
+  cy.on("window:confirm", (confirmText) => {
+    expect(confirmText).to.contain(
+      `Hello ${name}, Are you sure you want to confirm?`
+    );
+  });
+});
+  Cypress.Commands.add("hideTest", (name)=>{
+    homePage.showHideInputField.type(name);
+    homePage.hideBtn.click();
+  })
+  Cypress.Commands.add("showTest" ,()=>{
+    homePage.showBtn.click();
+  })
+
+

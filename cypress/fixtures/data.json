@@ -1,0 +1,11 @@
+{
+  "dropDown": {
+    "Options": ["option1","option2","option3"]
+  },
+  "uploadedImage": "cypress/fixtures/Test-Logo.png",
+  "openNewtab" : "https://www.easygenerator.com/en/",
+  "name" : "Emre",
+  "mouseHover" : {
+    "List": ["Top","Reload"]
+}
+}

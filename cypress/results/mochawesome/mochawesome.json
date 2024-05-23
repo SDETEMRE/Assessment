@@ -1,0 +1,126 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-05-23T12:40:02.765Z",
+    "end": "2024-05-23T12:40:07.078Z",
+    "duration": 4313,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bd6515a0-4595-44dc-bd27-04291bd533cb",
+      "title": "",
+      "fullFile": "cypress/e2e/TaskTestCases.cy.js",
+      "file": "cypress/e2e/TaskTestCases.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "990ec58f-ad7a-420a-9d92-d1f2638c86ae",
+          "title": "Test Cases for Task Home Page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Dropdown Test",
+              "fullTitle": "Test Cases for Task Home Page Dropdown Test",
+              "timedOut": null,
+              "duration": 3361,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "homePage.dropDownBtn.should(\"be.visible\").and(\"be.enabled\");\nhomePage.dropDownBtn.select(\"Option1\").should(\"have.value\", \"option1\");\nhomePage.dropDownBtn.find(\"option\").should(\"have.length\", 3);",
+              "err": {},
+              "uuid": "daceed94-3ee7-41b8-94e2-92d3a06b7496",
+              "parentUUID": "990ec58f-ad7a-420a-9d92-d1f2638c86ae",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Upload Image Test",
+              "fullTitle": "Test Cases for Task Home Page Upload Image Test",
+              "timedOut": null,
+              "duration": 924,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const uploadedImage = data.uploadedImage;\nhomePage.chooseFileBtn.should('be.enabled');\nhomePage.uploadFile(uploadedImage);\nhomePage.uploadedImage.should('have.attr', 'src').and('include', 'blob');",
+              "err": {},
+              "uuid": "70ba4bef-bd15-4f1d-accf-41847a3e1232",
+              "parentUUID": "990ec58f-ad7a-420a-9d92-d1f2638c86ae",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "daceed94-3ee7-41b8-94e2-92d3a06b7496",
+            "70ba4bef-bd15-4f1d-accf-41847a3e1232"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 4285,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/results/mochawesome",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
