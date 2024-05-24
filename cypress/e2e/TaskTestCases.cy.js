@@ -63,13 +63,10 @@ describe("Test Cases for Task Home Page", () => {
 
   it("iFrame Test", () => {
     const { tabs } = data.iframe;
-    homePage.iframe.then(($iframe) => {
-      const body = $iframe.contents().find("body");
-      cy.wrap(body).as("iframe");
-    });
-    cy.get("@iframe").find("#menu-item-100599").should("be.visible");
-    cy.get("@iframe").each(($el, index, list) => {
-      cy.wrap($el).invoke("text").should("contain", tabs[index]);
+    cy.getIframeBody("iframe").within(() => {
+      tabs.forEach((tabText) => {
+        cy.contains(tabText).should("be.visible").and("not.be.disabled");
+      });
     });
   });
 });
