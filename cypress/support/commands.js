@@ -29,7 +29,6 @@ const homePage = new HomePage();
 
 Cypress.Commands.add("alertAlertBtn", (name) => {
   homePage.nameField.type(name);
-  // Test scenario for alert button
   homePage.alertBtn.click();
   cy.on("window:alert", (alertText) => {
     expect(alertText).to.contain(
@@ -38,7 +37,6 @@ Cypress.Commands.add("alertAlertBtn", (name) => {
   });
 });
 Cypress.Commands.add("alertConfirmBtn", (name) => {
-  // Test scenario for confirm button
   homePage.nameField.type(name);
   homePage.confirmBtn.click();
   cy.on("window:confirm", (confirmText) => {
@@ -67,7 +65,4 @@ Cypress.Commands.add("getNewTabUrl", (openButtonSelector) => {
   openButtonSelector.click();
 });
 
-Cypress.Commands.add('readAlertTextFromFile', () => {
-  return cy.task('readFile', 'alert-text.txt');
-});
 
