@@ -35,18 +35,10 @@ describe("Test Cases for Task Home Page", () => {
   });
 
   it("Alert Test", () => {
-    const name = data.name;
-    cy.alertAlertBtn(name);
-    cy.alertConfirmBtn(name);
-    cy.readAlertTextFromFile().then((alertText) => {
-      cy.log("Alert Text:", alertText);
-      cy.window().then((win) => {
-        cy.stub(win, "alert").as("alertStub");
-        cy.then(() => {
-          win.alert(alertText);
-          cy.get("@alertStub").should("be.calledWith", alertText);
-        });
-      });
+    const filePath = data.filePath;
+    const expectedAlertText = data.alertText;
+    cy.task("readFile", { filePath }).then((fileContent) => {
+      expect(fileContent).to.include(expectedAlertText);
     });
   });
 

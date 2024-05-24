@@ -1,18 +1,18 @@
 const { defineConfig } = require("cypress");
 const fs = require('fs');
+const path = require('path');
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
       on('task', {
-        readFile(filename) {
+        readFile({ filePath }) {
           return new Promise((resolve, reject) => {
-            fs.readFile('alert-text.txt', 'utf8', (err, data) => {
+            const absolutePath = path.resolve(__dirname, '..', filePath);
+            fs.readFile(absolutePath, 'utf8', (err, data) => {
               if (err) {
-                console.error('Error reading file:', err);
-                return;
+                return reject(err);
               }
               resolve(data);
-              
             });
           });
         }

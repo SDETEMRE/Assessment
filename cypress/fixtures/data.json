@@ -16,5 +16,7 @@
       "Pricing",
       "Resources"
     ]
-  }
+  },
+  "alertText" : "Hello from Easygenerator",
+  "filePath": "/Users/ed/Desktop/Assessment/alert-text.txt"
 }
